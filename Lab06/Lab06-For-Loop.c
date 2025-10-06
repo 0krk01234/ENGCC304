@@ -40,7 +40,7 @@ int main () {
     }// end if
 
     else if (n %2 != 0) {
-        for( i = 0 ; i <= n ; i += 2 ){
+        for( i = 1 ; i <= n ; i += 2 ){
             printf(" %d " , i);
         } // end for
     }// end else if 
