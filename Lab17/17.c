@@ -1,13 +1,11 @@
-
 #include <stdio.h>
 #include <string.h>
 
 #define MAX_BOOKS 100
 
-// โครงสร้างข้อมูลหนังสือ
 typedef struct {
     int id;
-    char title[100]
+    char title[100];
     char author[100];
     int year;
 } Book;
@@ -31,7 +29,7 @@ int main() {
         printf("4. Exit\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
-        getchar(); 
+        getchar(); // เคลียร์ buffer
 
         switch (choice) {
             case 1:
@@ -57,7 +55,7 @@ int main() {
     return 0;
 }
 
-
+// ฟังก์ชันเพิ่มหนังสือ
 void addBook(Book books[], int *count) {
     if (*count >= MAX_BOOKS) {
         printf("Library is full! Cannot add more books.\n");
@@ -83,10 +81,11 @@ void addBook(Book books[], int *count) {
     printf("Book added successfully!\n");
 }
 
-
+// ฟังก์ชันค้นหาหนังสือตามชื่อ
 void searchBook(Book books[], int count, char title[]) {
     for (int i = 0; i < count; i++) {
         if (strcmp(books[i].title, title) == 0) {
+            printf("\nBook found!\n");
             printf("Book ID: %d\n", books[i].id);
             printf("Title: %s\n", books[i].title);
             printf("Author: %s\n", books[i].author);
@@ -97,6 +96,7 @@ void searchBook(Book books[], int count, char title[]) {
     printf("Book not found.\n");
 }
 
+// ฟังก์ชันแสดงหนังสือทั้งหมด
 void displayBooks(Book books[], int count) {
     if (count == 0) {
         printf("No books in the library.\n");
